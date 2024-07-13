@@ -204,7 +204,8 @@ export default function Profile() {
           id='email'
           defaultValue={currentUser.email}
           className='border p-3 rounded-lg'
-          onChange={handleChange}
+          // onChange={handleChange}
+          disabled
         />
         <input
           type='password'

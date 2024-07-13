@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ReactGA from "react-ga" //analtyics
 import Home from './pages/Home';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
@@ -10,6 +11,8 @@ import CreateListing from './pages/CreateListing';
 import UpdateListing from './pages/UpdateListing';
 import Listing from './pages/Listing';
 import Search from './pages/Search';
+
+const TRACKING_ID = "G-K088V41TKE"//analtyics
 
 export default function App() {
   return (

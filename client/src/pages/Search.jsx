@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
+import ReactGA from "react-ga"; //analytics
 import { useNavigate } from 'react-router-dom';
 import ListingItem from '../components/ListingItem';
+
 
 export default function Search() {
   const navigate = useNavigate();
@@ -13,6 +15,12 @@ export default function Search() {
     sort: 'created_at',
     order: 'desc',
   });
+
+  useEffect(
+    ()=>{
+      ReactGA.pageview(window.location.pathname); //analytics
+    },[]
+  );
 
   const [loading, setLoading] = useState(false);
   const [listings, setListings] = useState([]);
@@ -72,6 +80,11 @@ export default function Search() {
       e.target.id === 'rent' ||
       e.target.id === 'sale'
     ) {
+      ReactGA.event({ //analytics
+        category:e.target.id,
+        action:"test action",
+        label:"test label",
+      });
       setSidebardata({ ...sidebardata, type: e.target.id });
     }
 
